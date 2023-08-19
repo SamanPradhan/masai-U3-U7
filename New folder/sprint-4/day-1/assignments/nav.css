@@ -1,0 +1,21 @@
+nav {
+  height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: aqua;
+  color: white;
+}
+
+nav a {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 200%;
+  color: rgb(255, 16, 16);
+}
+
+#box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
