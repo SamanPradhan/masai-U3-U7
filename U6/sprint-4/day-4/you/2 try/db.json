@@ -1,0 +1,168 @@
+{
+  "cars": [
+    {
+      "id": "WVWAA7AJ7BW183737",
+      "model": "Bonneville",
+      "brand": "Pontiac",
+      "year": 1999,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car1_432155.jpeg",
+      "booking": null
+    },
+    {
+      "model": "Silverado 1500",
+      "brand": "Chevrolet",
+      "year": 2005,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car2_217711.jpeg",
+      "booking": {
+        "name": "Sourav Das",
+        "email": "sd12062020@gmail.com",
+        "phone": "09831639322",
+        "pickupDate": "2023-06-06",
+        "returnDate": "2023-07-01"
+      },
+      "id": "5N1AN0NU3FN396935"
+    },
+    {
+      "model": "Silverado 3500",
+      "brand": "Chevrolet",
+      "year": "2010",
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car3_617737.jpeg",
+      "booking": null,
+      "id": "WAUML64BX3N939328"
+    },
+    {
+      "id": "JTDZN3EU7E3799898",
+      "model": "Prius",
+      "brand": "Toyota",
+      "year": 2007,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car4_238819.jpeg",
+      "booking": null
+    },
+    {
+      "id": "WP0CA2A89AU891992",
+      "model": "LS",
+      "brand": "Lincoln",
+      "year": 2006,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car5_378068.jpeg",
+      "booking": null
+    },
+    {
+      "id": "WVGEP9BP9FD885733",
+      "model": "E-Series",
+      "brand": "Ford",
+      "year": 2008,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car1_432155.jpeg",
+      "booking": null
+    },
+    {
+      "id": "KMHHT6KD5AU448477",
+      "model": "Econoline E150",
+      "brand": "Ford",
+      "year": 1997,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car1_432155.jpeg",
+      "booking": null
+    },
+    {
+      "id": "2C3CDZBT5FH089375",
+      "model": "Probe",
+      "brand": "Ford",
+      "year": 1989,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car2_217711.jpeg",
+      "booking": null
+    },
+    {
+      "id": "19UUA65556A471183",
+      "model": "Grand Voyager",
+      "brand": "Plymouth",
+      "year": 1999,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car3_617737.jpeg",
+      "booking": null
+    },
+    {
+      "id": "5TFBW5F15DX526576",
+      "model": "Corvette",
+      "brand": "Chevrolet",
+      "year": 1956,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car4_238819.jpeg",
+      "booking": null
+    },
+    {
+      "id": "WA1VMAFEXED528237",
+      "model": "Protege",
+      "brand": "Mazda",
+      "year": 1997,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car5_378068.jpeg",
+      "booking": null
+    },
+    {
+      "id": "5N1AA0NC2FN716801",
+      "model": "Escalade EXT",
+      "brand": "Cadillac",
+      "year": 2004,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car1_432155.jpeg",
+      "booking": null
+    },
+    {
+      "id": "5XYZG3ABXCG567951",
+      "model": "M",
+      "brand": "Infiniti",
+      "year": 1992,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car1_432155.jpeg",
+      "booking": null
+    },
+    {
+      "id": "WBAVM5C53FV226511",
+      "model": "Baja",
+      "brand": "Subaru",
+      "year": 2006,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car2_217711.jpeg",
+      "booking": null
+    },
+    {
+      "model": "GTI",
+      "brand": "Volkswagen",
+      "year": 2006,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car3_617737.jpeg",
+      "booking": {
+        "name": "Sourav Das",
+        "email": "sd12062020@gmail.com",
+        "phone": "09831639322",
+        "pickupDate": "2023-06-11",
+        "returnDate": "2123-01-01"
+      },
+      "id": "WA1CGBFEXED547228"
+    },
+    {
+      "id": "5UXFG8C50EL930092",
+      "model": "Yukon XL 1500",
+      "brand": "GMC",
+      "year": 2007,
+      "image": "https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-06-06/car4_238819.jpeg",
+      "booking": null
+    },
+    {
+      "model": "Bonneville2",
+      "brand": "Pontiac2",
+      "year": "2000",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Wjd-Cak78mooEfHTx64D7xhFtgBMZRFiiQ&usqp=CAU",
+      "booking": null,
+      "id": "J01SuDl"
+    },
+    {
+      "model": "Bonneville3",
+      "brand": "Pontiac3",
+      "year": "2001",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Wjd-Cak78mooEfHTx64D7xhFtgBMZRFiiQ&usqp=CAU",
+      "booking": null,
+      "id": "Msh6d5q"
+    },
+    {
+      "model": "Bonneville4",
+      "brand": "Pontiac4",
+      "year": "2019",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Wjd-Cak78mooEfHTx64D7xhFtgBMZRFiiQ&usqp=CAU",
+      "booking": null,
+      "id": "i5NgODt"
+    }
+  ]
+}
