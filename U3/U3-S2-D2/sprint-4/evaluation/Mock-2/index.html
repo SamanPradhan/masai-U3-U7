@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <style>
+    /* All CSS For Home Page Goes Here  */
+    #product-container>div {
+      display: grid;
+      grid-template-columns: 430px 430px 430px;
+      grid-template-rows: repeat(14, 500px)
+    }
+
+    /* #product-container>div>div {
+      border: 2px solid red;
+    } */
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Web E-Commerce</h1>
+    <a href="./index.html">Home</a>
+    <a href="./cart.html">Cart</a>
+  </div>
+  <h1 id="alert"></h1>
+  <main>
+    <div id="filter">
+      <div id="brand-filter">
+        <h2>Filter By Brands</h2>
+        <div>
+          <input type="checkbox" id="roadster" />
+          <p>Roadster</p>
+        </div>
+        <div>
+          <input type="checkbox" id="blackberrys" />
+          <p>Blackberrys</p>
+        </div>
+        <div>
+          <input type="checkbox" id="van-heusen" />
+          <p>Van Heusen</p>
+        </div>
+        <div>
+          <input type="checkbox" id="allen-solly" />
+          <p>Allen Solly</p>
+        </div>
+        <div>
+          <input type="checkbox" id="twills" />
+          <p>Twills</p>
+        </div>
+      </div>
+      <div id="category-filter">
+        <h2>Filter By Categories</h2>
+        <div>
+          <input type="checkbox" id="men" />
+          <p>Men</p>
+        </div>
+        <div>
+          <input type="checkbox" id="women" />
+          <p>Women</p>
+        </div>
+        <div>
+          <input type="checkbox" id="homedecor" />
+          <p>Homedecor</p>
+        </div>
+        <div>
+          <input type="checkbox" id="kids" />
+          <p>Kids</p>
+        </div>
+      </div>
+    </div>
+    <div id="product-container">
+      <div>
+        <!-- Here Append All the Products  -->
+      </div>
+    </div>
+  </main>
+</body>
+<script type="module">
+  // All Your Script for Home Page Goes Here
+  let url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products`
+  let cart = JSON.parse(localStorage.getItem("cart")) || []
+  //console.log(cart)
+  let product_container = document.querySelector("#product-container div")
+  let alert = document.getElementById("alert")
+
+  let fetchedData = []
+  let filtered = []
+  //let input = document.querySelectorAll("input")
+
+  let brand_filter = document.getElementById("brand-filter")
+
+  let roadster = document.getElementById("roadster")
+  let blackberrys = document.getElementById("blackberrys")
+  let van_heusen = document.getElementById("van-heusen")
+  let allen_solly = document.getElementById("allen-solly")
+  let twills = document.getElementById("twills")
+
+
+  roadster.addEventListener("change", () => {
+    doabe(roadster)
+  })
+  blackberrys.addEventListener("change", () => {
+    doabe(blackberrys)
+  })
+  van_heusen.addEventListener("change", () => {
+    doabe(van_heusen)
+  })
+  allen_solly.addEventListener("change", () => {
+    doabe(allen_solly)
+  })
+  twills.addEventListener("change", () => {
+    doabe(twills)
+  })
+
+
+
+
+
+
+  function doabe(input) {
+    if (input.checked == true) {
+      console.log(input)
+      console.log(input.checked)
+
+      console.log(input.id)
+      fetchedData = fetchedData.filter(e => {
+        if (e.brand == input.id) {
+          console.log(e)
+          return true
+        }
+      })
+      console.log(fetchedData)
+      Display(fetchedData)
+    } else if (input.checked == false) {
+      fetchData()
+    }
+  }
+
+
+
+
+  let category_filter = document.getElementById("category-filter")
+
+  let men = document.getElementById("men")
+  let women = document.getElementById("women")
+  let homedecor = document.getElementById("homedecor")
+  let kids = document.getElementById("kids")
+
+
+  men.addEventListener("change", () => {
+    maple(men)
+  })
+  women.addEventListener("change", () => {
+    maple(women)
+  })
+  homedecor.addEventListener("change", () => {
+    maple(homedecor)
+  })
+  kids.addEventListener("change", () => {
+    maple(kids)
+  })
+
+
+  function maple(input) {
+    if (input.checked == true) {
+
+
+      console.log(input.id)
+      fetchedData = fetchedData.filter(e => {
+        if (e.category == input.id) {
+          console.log(e)
+          return true
+        }
+      })
+      console.log(fetchedData)
+      Display(fetchedData)
+    } else if (input.checked == false) {
+      fetchData()
+    }
+  }
+
+
+  fetchData()
+
+  async function fetchData() {
+    try {
+      let req = await fetch(url)
+      let data = await req.json()
+      fetchedData = data.data.map((el) => {
+        return {
+          id: el.id,
+          title: el.title,
+          brand: el.brand,
+          category: el.category,
+          image: el.image,
+          price: el.price
+
+        }
+      })
+      //localStorage.setItem("fetchdata", JSON.stringify(cart))
+      console.log(fetchedData)
+      Display(fetchedData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  function Display(data) {
+    product_container.innerHTML = null
+    data.forEach(element => {
+
+      let div = document.createElement("div")
+
+      let title = document.createElement("h3")
+      let brand = document.createElement("p")
+      let category = document.createElement("p")
+      let price = document.createElement("p")
+      let image = document.createElement("img")
+      let addtocart = document.createElement("button")
+
+      title.innerHTML = element.title
+      brand.innerHTML = element.brand
+      category.innerHTML = element.category
+      price.innerHTML = element.price
+      addtocart.innerHTML = "Add To cart"
+      image.setAttribute("src", element.image)
+      div.append(image, title, brand, category, price, addtocart)
+      product_container.append(div)
+
+      addtocart.addEventListener("click", () => {
+        console.log("yes")
+
+        if (repeat(element) == false) {
+          cart.push({ id: element.id, quantity: 1 })
+          localStorage.setItem("cart", JSON.stringify(cart))
+          console.log(cart)
+          alert.innerHTML = "Product added to The cart"
+        } else {
+          alert.innerHTML = "Product already in the cart"
+        }
+      })
+    });
+  }
+
+  function repeat(item) {
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id == item.id) {
+        return true
+      }
+    }
+    return false
+  }
+</script>
+
+</html>
