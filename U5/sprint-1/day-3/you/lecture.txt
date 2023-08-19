@@ -1,0 +1,17 @@
+Relationships
+
+Blogs
+User
+
+User - {
+    name,email
+
+}
+
+Blog - {
+    title,
+    content,
+    date,
+    auth0r_n@me,
+    auth0r_em@il
+}

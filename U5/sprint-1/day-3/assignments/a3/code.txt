@@ -1,0 +1,80 @@
+db.categories.aggregate([
+  {
+    $graphLookup: {
+      from: "categories",
+      startWith: "$_id",
+      connectFromField: "_id",
+      connectToField: "parent",
+      as: "subcategories"
+    }
+  },
+  {
+    $lookup: {
+      from: "products",
+      localField: "_id",
+      foreignField: "category",
+      as: "products"
+    }
+  },
+  {
+    $project: {
+      _id: 1,
+      name: 1,
+      productCount: {
+        $sum: {
+          $size: "$products"
+        }
+      },
+      subcategories: {
+        $map: {
+          input: "$subcategories",
+          as: "subcategory",
+          in: {
+            _id: "$$subcategory._id",
+            name: "$$subcategory.name",
+            productCount: {
+              $size: {
+                $ifNull: [
+                  { $filter: { input: "$products", as: "p", cond: { $eq: [ "$$p.category", "$$subcategory._id" ] } } },
+                  []
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 1,
+      name: 1,
+      productCount: 1,
+      subcategories: {
+        $filter: {
+          input: "$subcategories",
+          as: "subcategory",
+          cond: { $ne: [ "$$subcategory.productCount", 0 ] }
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      categories: {
+        $push: "$$ROOT"
+      },
+      totalProducts: {
+        $sum: "$productCount"
+      }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      categories: 1,
+      totalProducts: 1
+    }
+  }
+])
