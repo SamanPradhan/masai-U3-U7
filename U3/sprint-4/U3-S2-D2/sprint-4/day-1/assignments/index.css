@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(233, 233, 233);
+  margin: auto;
+}
+
+form {
+  width: 600px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+input,
+select,
+button {
+  height: 50px;
+  margin: 15px;
+  border-radius: 5px;
+}
+
+button {
+  color: white;
+  background-color: grey;
+}

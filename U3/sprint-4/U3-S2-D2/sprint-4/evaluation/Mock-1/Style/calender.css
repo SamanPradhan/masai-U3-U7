@@ -1,0 +1,10 @@
+@media only screen and (max-width: 900px) {
+  .calender {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.calender {
+  display: flex;
+}

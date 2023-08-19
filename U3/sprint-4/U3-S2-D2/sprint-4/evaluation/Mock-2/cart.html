@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart Page</title>
+  <style>
+    /* All Your css for Cart page goes here  */
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>Web E-Commerce</h1>
+    <a href="./index.html">Home</a>
+    <a href="./cart.html">Cart</a>
+  </div>
+  <h1 id="total">
+    Your total order value is :- <span id="cart-total">0</span>
+  </h1>
+  <div id="cart-container">
+    <!-- Here Append All the Cart Cards here-->
+  </div>
+</body>
+<script type="module">
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || []
+  console.log(cart)
+  let cart_container = document.querySelector("#cart-container")
+  let cart_total = document.querySelector("#cart-total")
+
+  cart.forEach(el => {
+    fetchData(el.id)
+  })
+
+  let total = 0
+  async function fetchData(id) {
+    try {
+      let req = await fetch(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products/${id}`)
+      let data = await req.json()
+
+      console.log(data.data)
+      Display(data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+
+  function Display(element) {
+
+
+    let div = document.createElement("div")
+
+    let title = document.createElement("h3")
+    let brand = document.createElement("p")
+    let category = document.createElement("p")
+    let price = document.createElement("p")
+    let image = document.createElement("img")
+
+
+    title.innerHTML = element.title
+    brand.innerHTML = element.brand
+    category.innerHTML = element.category
+    price.innerHTML = element.price
+    total += element.price
+    image.setAttribute("src", element.image)
+    div.append(image, title, brand, category, price)
+    cart_container.append(div)
+    cart_total.innerHTML = total
+    console.log(total)
+
+
+  }
+
+</script>
+
+</html>
